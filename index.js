@@ -1,13 +1,13 @@
 const express = require('express');
 const app = express();
-const PORT = 4000;
 
-// Simple route
 app.get('/', (req, res) => {
-    res.send('🚀 Welcome to the CICD Project Node App!');
+    res.send('🚀 CICD Project deployed successfully on Azure!');
 });
 
-// Start server
+// ✅ Use Azure's dynamic port OR fallback to 4000 locally
+const PORT = process.env.PORT || 4000;
+
 app.listen(PORT, () => {
-    console.log(`✅ Server is running on http://localhost:${PORT}`);
+    console.log(`✅ Server is running on port ${PORT}`);
 });
